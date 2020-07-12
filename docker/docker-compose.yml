@@ -1,0 +1,19 @@
+version: '3.3'
+
+volumes:
+  database:
+    driver: 'local'
+
+services:
+  database:
+    container_name: testing-api
+    image: postgres:11-alpine
+    ports:
+      - 15432:5432
+    volumes:
+      - database:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_USER: admin123
+      POSTGRES_DB: testing
+      PGDATA: /var/lib/postgresql/data/pgdata
