@@ -4,12 +4,16 @@ import UserService from "../services/user";
 const userRouter = Router();
 
 userRouter.get('/', async (req: Request, res: Response) => {
-    const userList = await UserService.userList();
-    console.log('--->', userList)
-    if (!userList.length) {
-        return res.status(204).json(userList);
+    const { count, rows } = await UserService.userList();
+    if (!count) {
+        return res.status(204).json({
+
+        });
     }
-    return res.status(200).json(userList);
+    return res.status(200).json({
+        count,
+        users: rows
+    });
 })
 
 userRouter.post('/', async (req: Request, res: Response) => {

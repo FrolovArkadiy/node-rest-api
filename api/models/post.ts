@@ -21,7 +21,7 @@ export type PostModelStatic = typeof Sequelize.Model & {
 export const PostFactory = (
   sequelize: Sequelize.Sequelize
 ): PostModelStatic => {
-  const Post = sequelize.define("post", {
+  const Post = sequelize.define("posts", {
     id: {
       autoIncrement: true,
       type: Sequelize.INTEGER,
@@ -29,7 +29,6 @@ export const PostFactory = (
     },
     title: Sequelize.STRING,
     text: Sequelize.STRING,
-    date: Sequelize.DATE,
   }) as PostModelStatic;
 
   return Post;

@@ -24,7 +24,7 @@ export type UserModelStatic = typeof Sequelize.Model & {
 export const UserFactory = (
   sequelize: Sequelize.Sequelize
 ): UserModelStatic => {
-  const User = sequelize.define("user", {
+  const User = sequelize.define("users", {
     id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
@@ -37,11 +37,7 @@ export const UserFactory = (
   }) as UserModelStatic;
 
   User.associate = (models) => {
-    User.hasMany(models.Post, {
-      onDelete: "CASCADE",
-      foreignKey: "postId",
-      as: "posts",
-    });
+    User.hasMany(models.Post);
   };
 
   return User;

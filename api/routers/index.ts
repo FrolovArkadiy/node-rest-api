@@ -5,8 +5,8 @@ import { ne } from "sequelize/types/lib/operators";
 
 const apiRouter = Router();
 apiRouter.get("/", (req: Request, res: Response, next) => {
-  return res.render("info.pug", {
-    title: "testing",
+  return res.render("info", {
+    title: "Creatiive. Task.",
     message: "Info for API V1",
   });
   next();
