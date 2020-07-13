@@ -9,5 +9,4 @@ export default class PostService {
     static async createPost(post: IAddPostModel): Promise<any> {
         return database.Post.create(post);
     }
-
 }

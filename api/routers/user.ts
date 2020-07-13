@@ -25,4 +25,11 @@ userRouter.post('/', async (req: Request, res: Response) => {
     }
 })
 
+userRouter.get(':id', async (req: Request, res: Response) => {
+    try {
+        const user = await UserService.getUserById(Number(req.params.id));
+        return res.json(user);
+    }
+});
+
 export default userRouter;

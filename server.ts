@@ -3,6 +3,7 @@ import chalk from "chalk";
 import apiRouter from "./api/routers";
 import bodyParser from "body-parser";
 import { version } from "./package.json";
+
 const { log } = console;
 
 const server = express();
