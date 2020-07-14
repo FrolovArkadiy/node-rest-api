@@ -1,23 +1,19 @@
 version: "3.3"
-
+networks:
+  lesson:
+    driver: bridge
 volumes:
   database:
     driver: "local"
 
 services:
-  pg-admin:
-    image: dpage/pgadmin4
-    ports:
-      - 6666:80
-    environment:
-      PGADMIN_DEFAULT_EMAIL: adm@adm.ru
-      PGADMIN_DEFAULT_PASSWORD: admin123
-  database:
-    container_name: testing-api
+  lesson-database:
+#    container_name: lesson-db
     image: postgres:11-alpine
+    networks:
+      - lesson
     ports:
       - 15432:5432
-
     volumes:
       - database:/var/lib/postgresql/data
     environment:
@@ -25,3 +21,15 @@ services:
       POSTGRES_USER: admin123
       POSTGRES_DB: testing
       PGDATA: /var/lib/postgresql/data/pgdata
+  api:
+    depends_on:
+      - lesson-database
+    container_name: lesson-api
+    build:
+      context: ./api
+    volumes:
+      - ../:/var/www/
+    networks:
+      - lesson
+    ports:
+    - 5555:5555

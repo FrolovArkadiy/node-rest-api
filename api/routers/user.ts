@@ -25,10 +25,15 @@ userRouter.post('/', async (req: Request, res: Response) => {
     }
 })
 
-userRouter.get(':id', async (req: Request, res: Response) => {
+userRouter.get('/:id', async (req: Request, res: Response) => {
     try {
         const user = await UserService.getUserById(Number(req.params.id));
-        return res.json(user);
+        if (user) {
+            return res.json(user);
+        }
+        return res.status(204).json(user);
+    } catch (e) {
+        return res.status(500).json(e);
     }
 });
 

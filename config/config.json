@@ -1,0 +1,29 @@
+{
+  "development": {
+    "username": "admin123",
+    "password": "admin123",
+    "database": "testing",
+    "host": "lesson-db",
+    "port": 5432,
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "admin123",
+    "password": "admin123",
+    "database": "testing",
+    "host": "lesson-db",
+    "port": 5432,
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "admin123",
+    "password": "admin123",
+    "database": "testing",
+    "host": "lesson-db",
+    "port": 5432,
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}

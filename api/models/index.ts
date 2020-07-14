@@ -11,8 +11,8 @@ const createModels = (): IDBInterface => {
     const database = 'testing';
     const user = 'admin123';
     const pass = 'admin123';
-    const host = 'localhost';
-    const port = 15432;
+    const host = 'lesson-database';
+    const port = 5432;
     const sequelize = new Sequelize(database, user, pass, {
         define: {
             charset: 'utf8'
