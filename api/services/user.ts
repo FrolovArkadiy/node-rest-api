@@ -10,7 +10,7 @@ export default class UserService {
     static async userList(): Promise<IUserListWithCount> {
         return database.User.findAndCountAll({
             include: [{
-                model: database.Post,
+                model: database.Book,
                 attributes: ['id']
             }],
             distinct: true
@@ -22,6 +22,16 @@ export default class UserService {
     }
 
     static async getUserById(id: number): Promise<IUserModel> {
-        return database.User.findByPk(id);
+        return database.User.findByPk(id, {
+            include: [{
+                model: database.Book,
+                attributes: ['id']
+            }]
+        });
+    }
+
+    static async updateUser(id: number, user: IAddUserModel): Promise<IUserModel> {
+        return database.User.update(user, { where: { id } })
+            .then(() => UserService.getUserById(id))
     }
 }

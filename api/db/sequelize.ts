@@ -1,5 +1,3 @@
-import { Sequelize } from 'sequelize';
-
 import createModels from "../models";
 
 const database = createModels();

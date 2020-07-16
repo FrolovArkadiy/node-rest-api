@@ -3,8 +3,8 @@
     "username": "admin123",
     "password": "admin123",
     "database": "testing",
-    "host": "lesson-db",
-    "port": 5432,
+    "host": "localhost",
+    "port": 15432,
     "dialect": "postgres",
     "operatorsAliases": false
   },
@@ -12,8 +12,8 @@
     "username": "admin123",
     "password": "admin123",
     "database": "testing",
-    "host": "lesson-db",
-    "port": 5432,
+    "host": "localhost",
+    "port": 15432,
     "dialect": "postgres",
     "operatorsAliases": false
   },
@@ -21,8 +21,8 @@
     "username": "admin123",
     "password": "admin123",
     "database": "testing",
-    "host": "lesson-db",
-    "port": 5432,
+    "host": "localhost",
+    "port": 15432,
     "dialect": "postgres",
     "operatorsAliases": false
   }

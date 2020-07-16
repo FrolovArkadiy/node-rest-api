@@ -1,18 +1,20 @@
 import { Sequelize } from 'sequelize';
 import {UserFactory, UserModelStatic} from "./user";
-import {PostFactory, PostModelStatic} from "./post";
+import {BookFactory, BookModelStatic} from "./book";
+import {AuthorFactory, AuthorModelStatic } from './author';
 
 export interface IDBInterface {
     sequelize: Sequelize,
     User: UserModelStatic,
-    Post: PostModelStatic,
+    Book: BookModelStatic,
+    Author: AuthorModelStatic
 }
 const createModels = (): IDBInterface => {
     const database = 'testing';
     const user = 'admin123';
     const pass = 'admin123';
-    const host = 'lesson-database';
-    const port = 5432;
+    const host = 'localhost';//'lesson-database';
+    const port = 15432;//5432;
     const sequelize = new Sequelize(database, user, pass, {
         define: {
             charset: 'utf8'
@@ -33,7 +35,8 @@ const createModels = (): IDBInterface => {
         })
     const dbFactory: IDBInterface = {
         User: UserFactory(sequelize),
-        Post: PostFactory(sequelize),
+        Book: BookFactory(sequelize),
+        Author: AuthorFactory(sequelize),
         sequelize
     };
 

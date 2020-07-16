@@ -36,8 +36,8 @@ export const UserFactory = (
     phone: Sequelize.STRING,
   }) as UserModelStatic;
 
-  User.associate = (models) => {
-    User.hasMany(models.Post);
+  User.associate = (models: IDBInterface) => {
+    User.hasMany(models.Book);
   };
 
   return User;
