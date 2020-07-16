@@ -8,7 +8,6 @@ volumes:
 
 services:
   lesson-database:
-#    container_name: lesson-db
     image: postgres:11-alpine
     networks:
       - lesson
@@ -26,9 +25,10 @@ services:
       - lesson-database
     container_name: lesson-api
     build:
-      context: ./api
+      context: .
+      dockerfile: ./docker/api/Dockerfile
     volumes:
-      - ../:/var/www/
+      - ./:/app
     networks:
       - lesson
     ports:

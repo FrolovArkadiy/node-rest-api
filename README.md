@@ -2,8 +2,10 @@
 
 Для запуска проекта необходимо:
 
-Запустить докеры с БД и API
+```npm i / yarn```
 
-выполнить docker-compose exec api npm run migrate (для наполнения базы)
+Запустить докеры с БД и API: ```docker-compose up -d --build```
+
+выполнить ```docker-compose exec api npm run migrate``` (для наполнения базы)
 
 Само задание по /apiV1
