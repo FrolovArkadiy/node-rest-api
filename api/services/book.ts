@@ -2,8 +2,9 @@ import database from "../db/sequelize";
 import {IAddBookModel, IBookModel} from "../models/book";
 
 export default class BookService {
-    static async bookList(): Promise<IBookModel[]> {
-        return database.Book.findAll();
+    static async bookList(userId: string | undefined): Promise<IBookModel[]> {
+        const where = userId ? { userId: Number(userId) } : undefined;
+        return database.Book.findAll({ where });
     }
 
     static async createBook(book: IAddBookModel): Promise<any> {

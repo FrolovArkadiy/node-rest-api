@@ -1,11 +1,12 @@
 import { Router, Request, Response } from 'express';
+import { matchedData } from 'express-validator'
 import BookService from "../services/book";
 
 const bookRouter = Router();
 
 bookRouter.get('/', async (req: Request, res: Response) => {
-    console.log('--->',req);
-    const bookList = await BookService.bookList();
+    const { userId } = req.query;
+    const bookList = await BookService.bookList(userId as string);
     if (!bookList.length) {
         return res.status(204).json(bookList);
     }
